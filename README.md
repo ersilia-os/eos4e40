@@ -1,10 +1,10 @@
 # Antibiotic activity of small molecules
 
-Based on a simple _E.coli_ growth inhibition assay, the authors trained a model capable of identifying antibiotic potential in compounds structurally divergent from conventional antibacterial drugs. One of the predicted active molecules, Halicin, was experimentally validated _in vitro_ and _in vivo_. Halicin is a drug under development as treatment for diabetes.
+Based on a simple _E.coli_ growth inhibition assay, the authors trained a model capable of identifying antibiotic potential in compounds structurally divergent from conventional antibiotic drugs. One of the predicted active molecules, Halicin, was experimentally validated _in vitro_ and _in vivo_. Halicin is a drug under development as treatment for diabetes.
 
 ## Summary
 
-* Predicts **antibiotic activity**
+* Predicts **antibiotic activity** of small molecules
 * Takes **compound structures** as input
 * Trained with **experimental** bioactivity data against _E.coli_
 * Based on a dataset of **>2,000** experiments
@@ -12,6 +12,11 @@ Based on a simple _E.coli_ growth inhibition assay, the authors trained a model 
 * Used for **drug repurposing**
 * Identified a **novel broad-spectrum** antibiotic
 * Published in *Stokes et al., Cell, 2020*: [10.1016/j.cell.2020.01.021]()
+
+## Specifications
+
+* Input: SMILES string
+* Endpoint: _E.coli_ growth inhibition at 50 uM (0: inactive, 1: active)
 
 ## History
 
