@@ -12,6 +12,7 @@ Based on a simple _E.coli_ growth inhibition assay, the authors trained a model 
 * Used for **drug repurposing**
 * Identified a **novel broad-spectrum** antibiotic
 * Published in *Stokes et al., Cell, 2020*: [10.1016/j.cell.2020.01.021]()
+* Processed data can be downloaded [here](https://github.com/yangkevin2/coronavirus_data/blob/master/data/ecoli.csv)
 
 ## Specifications
 
