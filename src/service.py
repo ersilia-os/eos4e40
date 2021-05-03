@@ -1,3 +1,5 @@
+from typing import List
+
 from bentoml import BentoService, api, artifacts
 from bentoml.adapters import JsonInput
 from bentoml.types import JsonSerializable
@@ -130,6 +132,9 @@ class ChempropArtifact(BentoServiceArtifact):
 
 @artifacts([ChempropArtifact("model")])
 class Service(BentoService):
-    @api(input=JsonInput())
-    def predict(self, input: JsonSerializable):
-        return self.artifacts.model.predict([input])[0]
+    @api(input=JsonInput(), batch=True)
+    def predict(self, input: List[JsonSerializable]):
+        input = input[0]
+        smiles_list = [inp["input"] for inp in input]
+        output = self.artifacts.model.predict(smiles_list)
+        return [output]
