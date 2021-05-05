@@ -16,7 +16,7 @@ Based on a simple _E.coli_ growth inhibition assay, the authors trained a model 
 
 ## Specifications
 
-* Input: SMILES string (also accepts an InChIKey string or a molecule name string) 
+* Input: SMILES string (also accepts an InChIKey string or a molecule name string, and converts them to SMILES) 
 * Endpoint: _E.coli_ growth inhibition at 50 uM (0: inactive, 1: active)
 * Results interpretation: 
     * 99 initial hits were identified from the Drug Repurposing Hub, with prediction scores ranging from 0.967 to 0.294. Accuracy of prediction (based on _in vitro_ growth         inhibition of _E.coli_) was 51%, and higher prediction score correlated with higher probability of growth inhibition.
