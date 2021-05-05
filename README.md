@@ -22,7 +22,7 @@ Based on a simple _E.coli_ growth inhibition assay, the authors trained a model 
     * 99 initial hits were identified from the Drug Repurposing Hub, with prediction scores ranging from 0.967 to 0.294. Accuracy of prediction (based on _in vitro_ growth         inhibition of _E.coli_) was 51%, and higher prediction score correlated with higher probability of growth inhibition.
     * Halicin prediction score was 0.3315
     * False Negative rate was estimated to be 3.17% (2 of the 63 lowest scoring molecules displayed _E.coli_ growth inhibition potential _in vitro_)
-    * The WuXi antituberculosis library highest score was 0.37, and none of its molecules demonstrated _E.coli_ growth inhibition _in vitro_
+    * The WuXi antituberculosis library highest score was 0.37, and none of its highest-ranking molecules demonstrated _E.coli_ growth inhibition _in vitro_
     * Of the 23 selected molecules from the ZINC library (scores > 0.8), 8 displayed activity against at least one of the following: _E.coli, S. aureus, Klebsiella                 pneumoniae, A.baumannii_ and _P. aeruginosa_
 
 ## History
