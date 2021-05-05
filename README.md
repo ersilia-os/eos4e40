@@ -11,7 +11,7 @@ Based on a simple _E.coli_ growth inhibition assay, the authors trained a model 
 * Results **validated experimentally**
 * Used for **drug repurposing**
 * Identified a **novel broad-spectrum** antibiotic
-* Published in *Stokes et al., Cell, 2020*: [10.1016/j.cell.2020.01.021]()
+* Published in *Stokes et al., Cell, 2020*: [10.1016/j.cell.2020.01.021](https://www.sciencedirect.com/science/article/pii/S0092867420301021)
 * Processed data can be downloaded [here](https://github.com/yangkevin2/coronavirus_data/blob/master/data/ecoli.csv)
 
 ## Specifications
@@ -27,7 +27,7 @@ Based on a simple _E.coli_ growth inhibition assay, the authors trained a model 
 
 ## History
 
-1. Model was downloaded on 28/04/2021 from [http://chemprop.csail.mit.edu/checkpoints]() following the direct link.
+1. Model was downloaded on 28/04/2021 from [Chemprop](http://chemprop.csail.mit.edu/checkpoints) following the direct link.
 2. We opened an issue on GitHub [#128](https://github.com/chemprop/chemprop/issues/108#issuecomment-802245616) to be sure about feature scaling.
 3. We duplicated `predict.py` and `scripts/save_features.py` scripts from chemprop GitHub repository.
 4. Model was incorporated to Ersilia on 28/04/2021.
