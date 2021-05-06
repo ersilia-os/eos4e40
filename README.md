@@ -19,9 +19,9 @@ Based on a simple _E.coli_ growth inhibition assay, the authors trained a model 
 * Input: SMILES string (also accepts an InChIKey string or a molecule name string, and converts them to SMILES) 
 * Endpoint: _E.coli_ growth inhibition at 50 uM (0: inactive, 1: active)
 * Results interpretation: 
-    * 99 initial hits were identified from the Drug Repurposing Hub, with prediction scores ranging from 0.967 to 0.294. Accuracy of prediction (based on _in vitro_ growth         inhibition of _E.coli_) was 51%, and higher prediction score correlated with higher probability of growth inhibition.
-    * Halicin prediction score was 0.3315
+    * 99 initial hits were identified from the Drug Repurposing Hub, with original prediction scores ranging from 0.967 to 0.294, with an  accuracy of 51%.
     * False Negative rate was estimated to be 3.17% (2 of the 63 lowest scoring molecules displayed _E.coli_ growth inhibition potential _in vitro_)
+    * The model was fine-tuned using the experimental validation results, correcting for molecules with lower prediction score but high inhibitory activity _in vitro_. All         tested molecules with growth inhibition capacity (OD<sub>600<sub> < 0.2) were in the 0.8 - 1 range with the adjusted model. Halicin scored 0.92.
     * The WuXi antituberculosis library highest score was 0.37, and none of its highest-ranking molecules demonstrated _E.coli_ growth inhibition _in vitro_
     * Of the 23 selected molecules from the ZINC library (scores > 0.8), 8 displayed activity against at least one of the following: _E.coli, S. aureus, Klebsiella                 pneumoniae, A.baumannii_ and _P. aeruginosa_
 
