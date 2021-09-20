@@ -87,7 +87,7 @@ def save_checkpoint(path: str,
 
 
 def load_checkpoint(path: str,
-                    device: torch.device = None,
+                    device: torch.device = "cpu", # Ersilia Edit
                     logger: logging.Logger = None) -> MoleculeModel:
     """
     Loads a model checkpoint.
@@ -109,11 +109,13 @@ def load_checkpoint(path: str,
     loaded_state_dict = state['state_dict']
 
     if device is not None:
+        print("Device", device)
         args.device = device
 
     # Build model
     model = MoleculeModel(args)
     model_state_dict = model.state_dict()
+    print("Building model") # Ersilia edit
 
     # Skip missing parameters and parameters of mismatched size
     pretrained_state_dict = {}
@@ -141,7 +143,9 @@ def load_checkpoint(path: str,
 
     if args.cuda:
         debug('Moving model to cuda')
-    model = model.to(args.device)
+        model = model.to("cpu")
+    else:
+        debug("Using model with cpu") # Ersilia edit
 
     return model
 
@@ -273,8 +277,9 @@ def load_scalers(path: str) -> Tuple[StandardScaler, StandardScaler, StandardSca
     :return: A tuple with the data :class:`~chemprop.data.scaler.StandardScaler`
              and features :class:`~chemprop.data.scaler.StandardScaler`.
     """
+    print("Loading scaler in {0}".format(path))
     state = torch.load(path, map_location=lambda storage, loc: storage)
-
+    print("Done")
     scaler = StandardScaler(state['data_scaler']['means'],
                             state['data_scaler']['stds']) if state['data_scaler'] is not None else None
     features_scaler = StandardScaler(state['features_scaler']['means'],
@@ -282,17 +287,23 @@ def load_scalers(path: str) -> Tuple[StandardScaler, StandardScaler, StandardSca
                                      replace_nan_token=0) if state['features_scaler'] is not None else None
 
     if 'atom_descriptor_scaler' in state.keys():
+        print("Atom descriptor scaler")
         atom_descriptor_scaler = StandardScaler(state['atom_descriptor_scaler']['means'],
                                                 state['atom_descriptor_scaler']['stds'],
                                                 replace_nan_token=0) if state['atom_descriptor_scaler'] is not None else None
+        print("Done")
     else:
+        print("Nothing")
         atom_descriptor_scaler = None
 
     if 'bond_feature_scaler' in state.keys():
+        print("Bond feature scaler")
         bond_feature_scaler = StandardScaler(state['bond_feature_scaler']['means'],
                                             state['bond_feature_scaler']['stds'],
                                             replace_nan_token=0) if state['bond_feature_scaler'] is not None else None
+        print("Done")
     else:
+        print("Nothing")
         bond_feature_scaler = None
 
     return scaler, features_scaler, atom_descriptor_scaler, bond_feature_scaler

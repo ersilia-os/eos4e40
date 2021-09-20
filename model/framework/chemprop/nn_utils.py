@@ -118,7 +118,7 @@ def initialize_weights(model: nn.Module) -> None:
 def compute_molecule_vectors(model: nn.Module,
                              data: MoleculeDataset,
                              batch_size: int,
-                             num_workers: int = 8) -> List[np.ndarray]:
+                             num_workers: int = 0) -> List[np.ndarray]: # Ersilia edit
     """
     Computes the molecule vectors output from the last layer of a :class:`~chemprop.models.MoleculeModel`.
 

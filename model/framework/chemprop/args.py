@@ -121,21 +121,25 @@ class CommonArgs(Tap):
         if not self.cuda:
             return torch.device('cpu')
         return torch.device('cpu')
-        #return torch.device('cuda', self.gpu)
+        #return torch.device('cuda', self.gpu) # Ersilia edit
 
     @device.setter
     def device(self, device: torch.device) -> None:
         self.cuda = device.type == 'cuda'
         self.gpu = device.index
+        self.cuda = False # Ersilia edit
 
     @property
     def cuda(self) -> bool:
         """Whether to use CUDA (i.e., GPUs) or not."""
-        return not self.no_cuda and torch.cuda.is_available()
+        do_cuda = not self.no_cuda and torch.cuda.is_available()
+        print("Do CUDA", do_cuda)
+        return do_cuda
 
     @cuda.setter
     def cuda(self, cuda: bool) -> None:
         self.no_cuda = not cuda
+        self.no_cuda = True # Ersilia edit
 
     @property
     def features_scaling(self) -> bool:

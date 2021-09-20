@@ -95,7 +95,7 @@ class MoleculeDatapoint:
         self.overwrite_default_bond_features = overwrite_default_bond_features
         self.is_reaction = is_reaction()
         self.is_explicit_h = is_explicit_h()
-        
+
 
         # Generate additional features if given a generator
         if self.features_generator is not None:
@@ -110,13 +110,13 @@ class MoleculeDatapoint:
                         # for H2
                         elif m is not None and m.GetNumHeavyAtoms() == 0:
                             # not all features are equally long, so use methane as dummy molecule to determine length
-                            self.features.extend(np.zeros(len(features_generator(Chem.MolFromSmiles('C')))))                           
+                            self.features.extend(np.zeros(len(features_generator(Chem.MolFromSmiles('C')))))
                     else:
                         if m[0] is not None and m[1] is not None and m[0].GetNumHeavyAtoms() > 0:
                             self.features.extend(features_generator(m[0]))
                         elif m[0] is not None and m[1] is not None and m[0].GetNumHeavyAtoms() == 0:
-                            self.features.extend(np.zeros(len(features_generator(Chem.MolFromSmiles('C')))))   
-                    
+                            self.features.extend(np.zeros(len(features_generator(Chem.MolFromSmiles('C')))))
+
 
             self.features = np.array(self.features)
 
@@ -601,7 +601,7 @@ class MoleculeDataLoader(DataLoader):
     def __init__(self,
                  dataset: MoleculeDataset,
                  batch_size: int = 50,
-                 num_workers: int = 8,
+                 num_workers: int = 0, # Ersilia edit
                  class_balance: bool = False,
                  shuffle: bool = False,
                  seed: int = 0):
@@ -667,7 +667,7 @@ class MoleculeDataLoader(DataLoader):
         r"""Creates an iterator which returns :class:`MoleculeDataset`\ s"""
         return super(MoleculeDataLoader, self).__iter__()
 
-    
+
 def make_mols(smiles: List[str], reaction: bool, keep_h: bool):
     """
     Builds a list of RDKit molecules (or a list of tuples of molecules if reaction is True) for a list of smiles.

@@ -80,6 +80,7 @@ def make_predictions(args: PredictArgs, smiles: List[List[str]] = None) -> List[
         batch_size=args.batch_size,
         num_workers=args.num_workers
     )
+    print("Test data loaded successfully")
 
     # Partial results for variance robust calculation.
     if args.ensemble_variance:
@@ -88,11 +89,15 @@ def make_predictions(args: PredictArgs, smiles: List[List[str]] = None) -> List[
     print(f'Predicting with an ensemble of {len(args.checkpoint_paths)} models')
     for index, checkpoint_path in enumerate(tqdm(args.checkpoint_paths, total=len(args.checkpoint_paths))):
         # Load model and scalers
+        print("Loading checkpoint with device {0} {1}".format(args.device, checkpoint_path)) # Ersilia edit
         model = load_checkpoint(checkpoint_path, device=args.device)
+        print("Loading scalers")
         scaler, features_scaler, atom_descriptor_scaler, bond_feature_scaler = load_scalers(checkpoint_path)
+        print("Scalers done") # Ersilia edit
 
         # Normalize features
         if args.features_scaling or train_args.atom_descriptor_scaling or train_args.bond_feature_scaling:
+            print("Normalizing features")
             test_data.reset_features_and_targets()
             if args.features_scaling:
                 test_data.normalize_features(features_scaler)
@@ -100,13 +105,16 @@ def make_predictions(args: PredictArgs, smiles: List[List[str]] = None) -> List[
                 test_data.normalize_features(atom_descriptor_scaler, scale_atom_descriptors=True)
             if train_args.bond_feature_scaling and args.bond_features_size > 0:
                 test_data.normalize_features(bond_feature_scaler, scale_bond_features=True)
+        print("Normalization done")
 
         # Make predictions
+        print("Make predictions")
         model_preds = predict(
             model=model,
             data_loader=test_data_loader,
             scaler=scaler
         )
+        print("Prediction done")
         sum_preds += np.array(model_preds)
         if args.ensemble_variance:
             all_preds[:, :, index] = model_preds
