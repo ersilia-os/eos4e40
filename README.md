@@ -7,7 +7,8 @@ Broad spectrum antibiotic potential of small molecules
 | Prediction of the growth inhibition potential of compounds on E.coli _in vitro_ | SMILES | IC50 | 2335 compounds | Yes |
 
 ## Source Code
-This model has been published by Stokes JM, Yang K, Swanson K, Jin W, Cubillos-Ruiz A, Donghia NM, MacNair CR, French S, Carfrae LA, Bloom-Ackermann Z, Tran VM, Chiappino-Pepe A, Badran AH, Andrews IW, Chory EJ, Church GM, Brown ED, Jaakkola TS, Barzilay R, Collins JJ. A Deep Learning Approach to Antibiotic Discovery. Cell. 2020 Feb 20;180(4):688-702.e13. doi: 10.1016/j.cell.2020.01.021. Erratum in: Cell. 2020 Apr 16;181(2):475-483. PMID: 32084340; PMCID: PMC8349178.
+This model has been published by Stokes JM, Yang K, Swanson K, Jin W, Cubillos-Ruiz A, Donghia NM, MacNair CR, French S, Carfrae LA, Bloom-Ackermann Z, Tran VM, Chiappino-Pepe A, Badran AH, Andrews IW, Chory EJ, Church GM, Brown ED, Jaakkola TS, Barzilay R, Collins JJ. A Deep Learning Approach to Antibiotic Discovery. Cell. 2020 Feb 20;180(4):688-702.e13. doi: [10.1016/j.cell.2020.01.021.](https://www.sciencedirect.com/science/article/pii/S0092867420301021) Erratum in: Cell. 2020 Apr 16;181(2):475-483. PMID: 32084340; PMCID: PMC8349178.
+
 Code: http://chemprop.csail.mit.edu/checkpoints
 
 ## Extended description
