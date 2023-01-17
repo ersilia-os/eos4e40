@@ -1,4 +1,4 @@
-# Broad spectrum anibiotic activity
+# Broad spectrum antibiotic activity
 
 Based on a simple E.coli growth inhibition assay, the authors trained a model capable of identifying antibiotic potential in compounds structurally divergent from conventional antibiotic drugs. One of the predicted active molecules, Halicin (SU3327), was experimentally validated in vitro and in vivo. Halicin is a drug under development as a treatment for diabetes.
 
