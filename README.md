@@ -4,30 +4,34 @@ Based on a simple E.coli growth inhibition assay, the authors trained a model ca
 
 ## Identifiers
 
-* EOS model ID: eos4e40
-* Slug: chemprop-antibiotic
+* EOS model ID: `eos4e40`
+* Slug: `chemprop-antibiotic`
 
 ## Characteristics
 
-* Input: Compound
-* Input shape: Single
-* Task: Classification
-* Output: Probability
-* Interpretation: Probability that a compound inhibits E.coli growth. The classifier was trained using a threshold of 80% growth inhibition 
+* Input: `Compound`
+* Input Shape: `Single`
+* Task: `Classification`
+* Output: `Probability`
+* Output Type: `Float`
+* Output Shape: `Single`
+* Interpretation: Probability that a compound inhibits E.coli growth. The inhibition threshold was set at 80% growth inhibition in the training set.
 
 ## References
 
 * [Publication](https://pubmed.ncbi.nlm.nih.gov/32084340/)
-* [Source](http://chemprop.csail.mit.edu/checkpoints)
+* [Source Code](http://chemprop.csail.mit.edu/checkpoints)
 * Ersilia contributor: [miquelduranfrigola](https://github.com/miquelduranfrigola)
 
 ## Citation
 
-If you use this model, please cite the [original authors](https://pubmed.ncbi.nlm.nih.gov/32084340/) of the model and the [Ersilia Model Hub](https://github.com/ersilia-os/ersilia/blob/master/CITATION.cff)
+If you use this model, please cite the [original authors](https://pubmed.ncbi.nlm.nih.gov/32084340/) of the model and the [Ersilia Model Hub](https://github.com/ersilia-os/ersilia/blob/master/CITATION.cff).
 
 ## License
 
-This package is licensed under a GPLv3 license. The model contained within this package is licensed under a MIT license. Please refer to the model license files if you use this model in your research.
+This package is licensed under a GPL-3.0 license. The model contained within this package is licensed under a MIT license.
+
+Notice: Ersilia grants access to these models 'as is' provided by the original authors, please refer to the original code repository and/or publication if you use the model in your research.
 
 ## About Us
 
