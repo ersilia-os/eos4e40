@@ -23,6 +23,11 @@ Based on a simple E.coli growth inhibition assay, the authors trained a model ca
 * [Source Code](http://chemprop.csail.mit.edu/checkpoints)
 * Ersilia contributor: [miquelduranfrigola](https://github.com/miquelduranfrigola)
 
+## Ersilia model URLs
+* [GitHub](https://github.com/ersilia-os/eos4e40)
+* [AWS S3](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4e40.zip)
+* [DockerHub](https://hub.docker.com/r/ersiliaos/eos4e40) (AMD64, ARM64)
+
 ## Citation
 
 If you use this model, please cite the [original authors](https://pubmed.ncbi.nlm.nih.gov/32084340/) of the model and the [Ersilia Model Hub](https://github.com/ersilia-os/ersilia/blob/master/CITATION.cff).

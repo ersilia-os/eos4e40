@@ -29,5 +29,11 @@
     "Publication": "https://pubmed.ncbi.nlm.nih.gov/32084340/",
     "Source Code": "http://chemprop.csail.mit.edu/checkpoints",
     "License": "MIT",
-    "Contributor": "miquelduranfrigola"
+    "Contributor": "miquelduranfrigola",
+    "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4e40.zip",
+    "DockerHub": "https://hub.docker.com/r/ersiliaos/eos4e40",
+    "Docker Architecture": [
+        "AMD64",
+        "ARM64"
+    ]
 }
