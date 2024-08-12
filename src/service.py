@@ -81,11 +81,9 @@ class ChempropModel(object):
         return result
 
 
-class ChempropArtifact(BentoServiceArtifact):
-    """Dummy Chemprop artifact to deal with file locations of checkpoints"""
-
+class Artifact(BentoServiceArtifact):
     def __init__(self, name):
-        super(ChempropArtifact, self).__init__(name)
+        super(Artifact, self).__init__(name)
         self._model = None
         self._extension = ".pkl"
 
@@ -130,7 +128,7 @@ class ChempropArtifact(BentoServiceArtifact):
         pickle.dump(self._model, open(self._model_file_path(dst), "wb"))
 
 
-@artifacts([ChempropArtifact("model")])
+@artifacts([Artifact("model")])
 class Service(BentoService):
     @api(input=JsonInput(), batch=True)
     def predict(self, input: List[JsonSerializable]):
