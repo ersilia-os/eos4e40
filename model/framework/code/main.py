@@ -3,7 +3,9 @@ import os
 import csv
 import sys
 
-import chemprop
+from chemprop.args import PredictArgs
+from chemprop.train import make_predictions
+from chemprop.utils import load_args, update_prediction_args
 # parse arguments
 input_file = sys.argv[1]
 output_file = sys.argv[2]
@@ -26,8 +28,10 @@ def my_model(smiles_list):
     '--no_features_scaling'
     ]
 
-    args = chemprop.args.PredictArgs().parse_args(arguments)
-    preds = chemprop.train.make_predictions(args=args, smiles=smiles_list_list)
+    args = PredictArgs().parse_args(arguments)
+    train_args = load_args(args.checkpoint_dir)
+    update_prediction_args(predict_args=args, train_args=train_args)
+    preds = make_predictions(args=args, smiles=smiles_list_list)
     return preds
 
 
