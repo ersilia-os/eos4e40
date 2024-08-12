@@ -22,6 +22,26 @@ def load_chemprop_model(framework_dir, checkpoints_dir):
     mdl.load(framework_dir, checkpoints_dir)
     return mdl
 
+def Float(x):
+    try:
+        return float(x)
+    except:
+        return None
+
+
+def String(x):
+    x = str(x)
+    if not x:
+        return None
+    if x == "nan":
+        return None
+    if x == "null":
+        return None
+    if x == "False":
+        return None
+    if x == "None":
+        return None
+    return x
 
 class ChempropModel(object):
     def __init__(self):
