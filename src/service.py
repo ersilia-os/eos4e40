@@ -3,24 +3,25 @@ from typing import List
 from bentoml import BentoService, api, artifacts
 from bentoml.adapters import JsonInput
 from bentoml.types import JsonSerializable
+from bentoml.service import BentoServiceArtifact
 
-import shutil
+import pickle
 import os
-import csv
+import shutil
+import collections
 import tempfile
 import subprocess
-import pickle
-
-from bentoml.service import BentoServiceArtifact
+import csv
 
 CHECKPOINTS_BASEDIR = "checkpoints"
 FRAMEWORK_BASEDIR = "framework"
 
 
-def load_chemprop_model(framework_dir, checkpoints_dir):
-    mdl = ChempropModel()
+def load_model(framework_dir, checkpoints_dir):
+    mdl = Model()
     mdl.load(framework_dir, checkpoints_dir)
     return mdl
+
 
 def Float(x):
     try:
@@ -43,12 +44,13 @@ def String(x):
         return None
     return x
 
-class ChempropModel(object):
+
+class Model(object):
     def __init__(self):
         self.DATA_FILE = "_data.csv"
         self.OUTPUT_FILE = "_output.csv"
         self.RUN_FILE = "_run.sh"
-        self.LOG_FILE = "_run.log"
+        self.LOG_FILE = "run.log"
 
     def load(self, framework_dir, checkpoints_dir):
         self.framework_dir = framework_dir
@@ -85,9 +87,9 @@ class ChempropModel(object):
         with open(output_file, "r") as f:
             reader = csv.reader(f)
             h = next(reader)
-            result = []
+            R = []
             for r in reader:
-               R += [
+                R += [
                     {"outcome": [Float(x) for x in r]}
                 ]  # <-- EDIT: Modify according to type of output (Float, String...)
         meta = {"outcome": h}
@@ -119,20 +121,20 @@ class Artifact(BentoServiceArtifact):
     def _model_file_path(self, base_path):
         return os.path.join(base_path, self.name + self._extension)
 
-    def pack(self, chemprop_model):
-        self._model = chemprop_model
+    def pack(self, model):
+        self._model = model
         return self
 
     def load(self, path):
         model_file_path = self._model_file_path(path)
-        chemprop_model = pickle.load(open(model_file_path, "rb"))
-        chemprop_model.set_checkpoints_dir(
+        model = pickle.load(open(model_file_path, "rb"))
+        model.set_checkpoints_dir(
             os.path.join(os.path.dirname(model_file_path), "checkpoints")
         )
-        chemprop_model.set_framework_dir(
+        model.set_framework_dir(
             os.path.join(os.path.dirname(model_file_path), "framework")
         )
-        return self.pack(chemprop_model)
+        return self.pack(model)
 
     def get(self):
         return self._model
@@ -146,8 +148,8 @@ class Artifact(BentoServiceArtifact):
 @artifacts([Artifact("model")])
 class Service(BentoService):
     @api(input=JsonInput(), batch=True)
-    def predict(self, input: List[JsonSerializable]):
+    def run(self, input: List[JsonSerializable]):
         input = input[0]
         input_list = [inp["input"] for inp in input]
-        output = self.artifacts.model.predict(input_list)
+        output = self.artifacts.model.run(input_list)
         return [output]

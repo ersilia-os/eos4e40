@@ -1,4 +1,4 @@
-FROM bentoml/model-server:0.11.0-py37
+FROM bentoml/model-server:0.11.0-py39
 MAINTAINER ersilia
 
 RUN pip install rdkit
@@ -8,6 +8,7 @@ RUN pip install typed-argument-parser==1.6.1
 RUN pip install scikit-learn
 RUN pip install torch
 RUN pip install pandas
+RUN pip install scipy==1.7.1
 
 WORKDIR /repo
 COPY . /repo
