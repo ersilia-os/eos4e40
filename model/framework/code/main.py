@@ -82,10 +82,10 @@ print("Calculations done")
 
 values = []
 header = None
-for k,v in result.items():
+for item in result: 
     if header is None:
-        header = k
-    values += [v]
+        header = item.keys() 
+    values.append(item.values())  
 
 print("Writing results to", output_file)
 with open(output_file, "w") as f:
