@@ -18,7 +18,7 @@ class ChempropModel(object):
         self.DATA_FILE = "data.csv"
         self.FEAT_FILE = "features.npz"
         self.PRED_FILE = "pred.csv"
-        self.RUN_FILE = "run.sh"
+        self.RUN_FILE = "_run.sh"
         self.framework_dir = FRAMEWORK_BASEDIR
         self.checkpoints_dir = CHECKPOINTS_BASEDIR
 
