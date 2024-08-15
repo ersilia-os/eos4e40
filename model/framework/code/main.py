@@ -24,7 +24,6 @@ class ChempropModel(object):
 
     def predict(self, smiles_list):
         tmp_folder = tempfile.mkdtemp()
-        #tmp_folder = self.framework_dir # TODO remove
         data_file = os.path.join(tmp_folder, self.DATA_FILE)
         feat_file = os.path.join(tmp_folder, self.FEAT_FILE)
         pred_file = os.path.join(tmp_folder, self.PRED_FILE)
@@ -49,7 +48,6 @@ class ChempropModel(object):
                     feat_file,
                 )
             ]
-            print(lines)
             f.write(os.linesep.join(lines))
         cmd = "bash {0}".format(run_file)
         with open(os.devnull, "w") as fp:
@@ -65,7 +63,6 @@ class ChempropModel(object):
         return result
 
 
-print("Reading file", input_file)
 with open(input_file, "r") as f:
     reader = csv.reader(f)
     next(reader)
@@ -73,23 +70,15 @@ with open(input_file, "r") as f:
     for r in reader:
         smiles_list += [r[0]]
 
-print(len(smiles_list), "molecules read!")
 
-print("Running model!"),
-print(f"content after reading the file: {smiles_list}")
 model = ChempropModel()
 result = model.predict(smiles_list)
-print("Calculations done")
 
 values = []
 header = None
-print(f"this is the result: {result}")
 for item in result: 
-    print(f"each item is:{item}")
     if header is None:
-        print(f"header is none: so it is {item.keys()}")
         header = list(item.keys())
-        print(f"appending header: {item.values()}")
         values.append(header) 
     values.append(list(item.values()))  
 
