@@ -75,21 +75,26 @@ with open(input_file, "r") as f:
 
 print(len(smiles_list), "molecules read!")
 
-print("Running model!")
+print("Running model!"),
+print(f"content after reading the file: {smiles_list}")
 model = ChempropModel()
 result = model.predict(smiles_list)
 print("Calculations done")
 
 values = []
 header = None
+print(f"this is the result: {result}")
 for item in result: 
+    print(f"each item is:{item}")
     if header is None:
-        header = item.keys() 
-    values.append(item.values())  
+        print(f"header is none: so it is {item.keys()}")
+        header = list(item.keys())
+        print(f"appending header: {item.values()}")
+        values.append(header) 
+    values.append(list(item.values()))  
 
 print("Writing results to", output_file)
 with open(output_file, "w") as f:
     writer = csv.writer(f)
-    writer.writerow([header])
-    for v in values:
-        writer.writerow([v])
+    writer.writerow(values)
+print("the completed file is: ", output_file)
