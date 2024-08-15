@@ -24,7 +24,7 @@ class ChempropModel(object):
 
     def predict(self, smiles_list):
         tmp_folder = tempfile.mkdtemp()
-        tmp_folder = self.framework_dir # TODO remove
+        #tmp_folder = self.framework_dir # TODO remove
         data_file = os.path.join(tmp_folder, self.DATA_FILE)
         feat_file = os.path.join(tmp_folder, self.FEAT_FILE)
         pred_file = os.path.join(tmp_folder, self.PRED_FILE)
@@ -93,8 +93,6 @@ for item in result:
         values.append(header) 
     values.append(list(item.values()))  
 
-print("Writing results to", output_file)
-with open(output_file, "w") as f:
+with open(output_file, 'w', newline='') as f:
     writer = csv.writer(f)
-    writer.writerow(values)
-print("the completed file is: ", output_file)
+    writer.writerows(values)  
