@@ -1,0 +1,2 @@
+name,type,direction,description
+inhibition_50um,float,high,Probability of inhibiting the growth (80%) of E.coli at 50 uM
