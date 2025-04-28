@@ -41,7 +41,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `428`
 - **Environment Size (Mb):** `1484`
+- **Image Size (Mb):** `2654.67`
 
+**Computational Performance (seconds):**
+- 4 inputs: `58.02`
+- 20 inputs: `56.3`
+- 100 inputs: `102.92`
 
 ### References
 - **Source Code**: [http://chemprop.csail.mit.edu/checkpoints](http://chemprop.csail.mit.edu/checkpoints)
