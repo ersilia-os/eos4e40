@@ -4,20 +4,25 @@
     "Status": "Ready",
     "Title": "Broad spectrum antibiotic activity",
     "Description": "Based on a simple E.coli growth inhibition assay, the authors trained a model capable of identifying antibiotic potential in compounds structurally divergent from conventional antibiotic drugs. One of the predicted active molecules, Halicin (SU3327), was experimentally validated in vitro and in vivo. Halicin is a drug under development as a treatment for diabetes.\n\n",
-    "Mode": "Pretrained",
+    "Source": "Local",
+    "Source Type": "External",
     "Input": [
         "Compound"
     ],
-    "Task": [
-        "Classification"
+    "Input Dimension": 1,
+    "Task": "Annotation",
+    "Subtask": "Activity prediction",
+    "Biomedical Area": [
+        "Antimicrobial resistance"
+    ],
+    "Target Organism": [
+        "Escherichia coli"
     ],
     "Output": [
         "Probability"
     ],
-    "Output Type": [
-        "Float"
-    ],
-    "Output Shape": "Single",
+    "Output Dimension": 1,
+    "Output Consistency": "Fixed",
     "Interpretation": "Probability that a compound inhibits E.coli growth. The inhibition threshold was set at 80% growth inhibition in the training set.",
     "Tag": [
         "E.coli",
@@ -26,12 +31,19 @@
         "Chemical graph model"
     ],
     "Publication": "https://pubmed.ncbi.nlm.nih.gov/32084340/",
+    "Publication Type": "Peer reviewed",
+    "Publication Year": 2020,
     "Source Code": "http://chemprop.csail.mit.edu/checkpoints",
     "License": "MIT",
     "Contributor": "miquelduranfrigola",
-    "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4e40.zip",
+    "Incorporation Date": "2018-06-06",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos4e40",
     "Docker Architecture": [
-        "AMD64"
+        "AMD64",
+        "ARM64"
+    ],
+    "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4e40.zip",
+    "Deployment": [
+        "Local"
     ]
 }
