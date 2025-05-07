@@ -39,15 +39,15 @@
     "Source Code": "http://chemprop.csail.mit.edu/checkpoints",
     "License": "MIT",
     "Contributor": "miquelduranfrigola",
-    "Incorporation Date": "2018-06-06",
+    "Incorporation Date": "2020-11-04",
     "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4e40.zip",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos4e40",
     "Docker Architecture": [
         "AMD64",
         "ARM64"
     ],
-    "Docker Pack Method": "FastAPI",
     "Model Size": 428.0,
     "Environment Size": 1484.0,
-    "Image Size": 2654.67
+    "Image Size": 2654.67,
+    "Docker Pack Method": "FastAPI"
 }
