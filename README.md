@@ -4,6 +4,7 @@ Based on a simple E.coli growth inhibition assay, the authors trained a model ca
 
 This model was incorporated on 2020-11-04.
 
+
 ## Information
 ### Identifiers
 - **Ersilia Identifier:** `eos4e40`
