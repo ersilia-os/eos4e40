@@ -72,14 +72,18 @@ with open(input_file, "r") as f:
 
 
 model = ChempropModel()
-result = model.predict(smiles_list)
 
+# Run model per molecule with try/except safety net
 values = []
 header = ["inhibition_50um"]
 values.append(header)
-for item in result: 
-    values.append(list(item.values()))  
+for smi in smiles_list:
+    try:
+        result = model.predict([smi])
+        values.append(list(result[0].values()))
+    except Exception:
+        values.append([""])
 
 with open(output_file, 'w', newline='') as f:
     writer = csv.writer(f)
-    writer.writerows(values) 
+    writer.writerows(values)
