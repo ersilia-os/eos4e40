@@ -2,7 +2,7 @@
 
 Based on a simple E.coli growth inhibition assay, the authors trained a model capable of identifying antibiotic potential in compounds structurally divergent from conventional antibiotic drugs. One of the predicted active molecules, Halicin (SU3327), was experimentally validated in vitro and in vivo. Halicin is a drug under development as a treatment for diabetes.
 
-This model was incorporated on 2020-11-04.Last packaged on 2025-08-27.
+This model was incorporated on 2020-11-04.Last packaged on 2026-05-13.
 
 ## Information
 ### Identifiers
@@ -41,12 +41,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `428`
 - **Environment Size (Mb):** `1489`
-- **Image Size (Mb):** `2752.21`
+- **Image Size (Mb):** `2763.59`
 
 **Computational Performance (seconds):**
-- 10 inputs: `35.46`
-- 100 inputs: `44.96`
-- 10000 inputs: `1461.81`
+- 10 inputs: `36.61`
+- 100 inputs: `873.89`
+- 10000 inputs: `-1`
 
 ### References
 - **Source Code**: [http://chemprop.csail.mit.edu/checkpoints](http://chemprop.csail.mit.edu/checkpoints)
