@@ -1,7 +1,7 @@
 {
     "Identifier": "eos4e40",
     "Slug": "chemprop-antibiotic",
-    "Status": "In maintenance",
+    "Status": "Ready",
     "Title": "Broad spectrum antibiotic activity",
     "Description": "Based on a simple E.coli growth inhibition assay, the authors trained a model capable of identifying antibiotic potential in compounds structurally divergent from conventional antibiotic drugs. One of the predicted active molecules, Halicin (SU3327), was experimentally validated in vitro and in vivo. Halicin is a drug under development as a treatment for diabetes.",
     "Deployment": [
@@ -40,7 +40,7 @@
     "License": "MIT",
     "Contributor": "miquelduranfrigola",
     "Incorporation Date": "2020-11-04",
-    "Last Packaging Date": "2025-08-27",
+    "Last Packaging Date": "2026-05-13",
     "Release": "v1.0.0",
     "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4e40.zip",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos4e40",
@@ -50,11 +50,11 @@
     ],
     "Model Size": 428.0,
     "Environment Size": 1489.0,
-    "Image Size": 2752.21,
-    "Computational Performance 1": 35.46,
-    "Computational Performance 2": 27.32,
-    "Computational Performance 3": 44.96,
-    "Computational Performance 4": 304.17,
-    "Computational Performance 5": 1461.81,
+    "Image Size": 2763.59,
+    "Computational Performance 1": 36.61,
+    "Computational Performance 2": 103.15,
+    "Computational Performance 3": 873.89,
+    "Computational Performance 4": -1.0,
+    "Computational Performance 5": -1.0,
     "Docker Pack Method": "FastAPI"
 }
