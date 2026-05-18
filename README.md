@@ -50,7 +50,7 @@ Below are the **Output Columns** of the model:
 
 ### References
 - **Source Code**: [http://chemprop.csail.mit.edu/checkpoints](http://chemprop.csail.mit.edu/checkpoints)
-- **Publication**: .[https://doi.org/10.1016/j.cell.2020.01.021](https://doi.org/10.1016/j.cell.2020.01.021)
+- **Publication**: [https://doi.org/10.1016/j.cell.2020.01.021](https://doi.org/10.1016/j.cell.2020.01.021)
 - **Publication Type:** `Peer reviewed`
 - **Publication Year:** `2020`
 - **Ersilia Contributor:** [miquelduranfrigola](https://github.com/miquelduranfrigola)
