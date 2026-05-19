@@ -22,7 +22,6 @@
     "Output Consistency": "Fixed",
     "Interpretation": "Probability that a compound inhibits E.coli growth. The inhibition threshold was set at 80% growth inhibition in the training set.",
     "Tag": [
-        "E.coli",
         "IC50",
         "Antimicrobial activity",
         "Chemical graph model"
