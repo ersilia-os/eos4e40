@@ -1,6 +1,6 @@
 # Broad spectrum antibiotic activity
 
-Based on a simple E.coli growth inhibition assay, the authors trained a model capable of identifying antibiotic potential in compounds structurally divergent from conventional antibiotic drugs. One of the predicted active molecules, Halicin (SU3327), was experimentally validated in vitro and in vivo. Halicin is a drug under development as a treatment for diabetes.
+Predicts growth inhibition of Escherichia coli directly from chemical structure. Stokes and colleagues screened 2,335 compounds, combining an FDA-approved drug library with natural products, and binarised the results at an 80% growth-inhibition cut-off to train a directed message-passing neural network. Applying it across more than 107 million molecules surfaced halicin, a compound structurally unlike conventional antibiotics that cleared infections in mice. The training screen is small and skewed towards approved drugs, so confidence is highest for comparable chemistry.
 
 This model was incorporated on 2020-11-04.Last packaged on 2026-05-13.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2020-11-04.Last packaged on 2026-05-13.
 ### Output
 - **Output Dimension:** `1`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability that a compound inhibits E.coli growth. The inhibition threshold was set at 80% growth inhibition in the training set.
+- **Interpretation:** Probability of Escherichia coli growth inhibition, with actives defined at 80% inhibition in the training screen.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
