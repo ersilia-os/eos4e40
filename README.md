@@ -1,6 +1,6 @@
 # Broad spectrum antibiotic activity
 
-Predicts growth inhibition of Escherichia coli directly from chemical structure. Stokes and colleagues screened 2,335 compounds, combining an FDA-approved drug library with natural products, and binarised the results at an 80% growth-inhibition cut-off to train a directed message-passing neural network. Applying it across more than 107 million molecules surfaced halicin, a compound structurally unlike conventional antibiotics that cleared infections in mice. The training screen is small and skewed towards approved drugs, so confidence is highest for comparable chemistry.
+Predicts growth inhibition of Escherichia coli directly from chemical structure. Stokes and colleagues screened an FDA-approved drug library of 1,760 molecules plus 800 natural products, 2,335 compounds once deduplicated, at 50 micromolar and binarised the results at an 80% growth-inhibition cut-off to train a directed message-passing network augmented with RDKit descriptors. Ranking the Drug Repurposing Hub with it surfaced halicin, a preclinical antidiabetic that cleared infections in mice; a separate ZINC15 screen of over 107 million molecules gave eight further actives.
 
 This model was incorporated on 2020-11-04.Last packaged on 2026-05-13.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2020-11-04.Last packaged on 2026-05-13.
 ### Output
 - **Output Dimension:** `1`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability of Escherichia coli growth inhibition, with actives defined at 80% inhibition in the training screen.
+- **Interpretation:** Probability of Escherichia coli growth inhibition, actives being compounds blocking 80% of growth at 50 micromolar.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
