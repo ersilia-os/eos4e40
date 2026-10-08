@@ -2,7 +2,7 @@
 
 Predicts growth inhibition of Escherichia coli directly from chemical structure. Stokes and colleagues screened an FDA-approved drug library of 1,760 molecules plus 800 natural products, 2,335 compounds once deduplicated, at 50 micromolar and binarised the results at an 80% growth-inhibition cut-off to train a directed message-passing network augmented with RDKit descriptors. Ranking the Drug Repurposing Hub with it surfaced halicin, a preclinical antidiabetic that cleared infections in mice; a separate ZINC15 screen of over 107 million molecules gave eight further actives.
 
-This model was incorporated on 2020-11-04.Last packaged on 2026-05-13.
+This model was incorporated on 2020-11-04.Last packaged on 2026-10-08.
 
 ## Information
 ### Identifiers
@@ -41,12 +41,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `428`
 - **Environment Size (Mb):** `1489`
-- **Image Size (Mb):** `2763.59`
+- **Image Size (Mb):** `2793.93`
 
 **Computational Performance (seconds):**
-- 10 inputs: `36.61`
-- 100 inputs: `873.89`
-- 10000 inputs: `-1`
+- 10 inputs: `32.02`
+- 100 inputs: `44.59`
+- 10000 inputs: `1626.57`
 
 ### References
 - **Source Code**: [http://chemprop.csail.mit.edu/checkpoints](http://chemprop.csail.mit.edu/checkpoints)
