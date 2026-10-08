@@ -14,7 +14,7 @@ This model was incorporated on 2020-11-04.Last packaged on 2026-05-13.
 - **Subtask:** `Activity prediction`
 - **Biomedical Area:** `Antimicrobial resistance`
 - **Target Organism:** `Escherichia coli`
-- **Tags:** `E.coli`, `IC50`, `Antimicrobial activity`, `Chemical graph model`
+- **Tags:** `IC50`, `Antimicrobial activity`, `Chemical graph model`
 
 ### Input
 - **Input:** `Compound`
