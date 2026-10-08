@@ -3,6 +3,7 @@ import os
 import csv
 import tempfile
 import subprocess
+from rdkit import Chem
 
 root = os.path.dirname(os.path.abspath(__file__))
 
@@ -39,8 +40,11 @@ class ChempropModel(object):
                     self.framework_dir, data_file, feat_file
                 )
             ]
+            # OPTIMIZATION (keeps outputs identical): --batch_size 1 runs each molecule
+            # through the network on its own, as when the model was called per molecule.
+            # Bigger batches change results in the 8th digit (float32 rounding).
             lines += [
-                "python {0}/code/predict.py --test_path {1} --checkpoint_dir {2} --preds_path {3} --features_path {4} --no_features_scaling".format(
+                "python {0}/code/predict.py --test_path {1} --checkpoint_dir {2} --preds_path {3} --features_path {4} --no_features_scaling --batch_size 1".format(
                     self.framework_dir,
                     data_file,
                     self.checkpoints_dir,
@@ -73,16 +77,40 @@ with open(input_file, "r") as f:
 
 model = ChempropModel()
 
-# Run model per molecule with try/except safety net
+
+def predict_one_by_one(smiles):
+    """Original approach: one chemprop run per molecule, a failure only blanks that molecule."""
+    rows = []
+    for smi in smiles:
+        try:
+            result = model.predict([smi])
+            rows.append(list(result[0].values()))
+        except Exception:
+            rows.append([""])
+    return rows
+
+
+# OPTIMIZATION: one chemprop run for all molecules instead of one per molecule.
+# Each run starts two Python processes (features, then prediction) and loads the
+# 20 checkpoints (~430 MB), which took ~5 s per molecule; the prediction itself is
+# milliseconds. Features are computed per molecule and the network still sees one
+# molecule at a time (--batch_size 1 above), so the results do not change.
+# Invalid SMILES are left out of the batch (they always got an empty value), and if
+# the batch run still fails we fall back to the original per-molecule loop.
 values = []
 header = ["inhibition_50um"]
 values.append(header)
-for smi in smiles_list:
-    try:
-        result = model.predict([smi])
-        values.append(list(result[0].values()))
-    except Exception:
-        values.append([""])
+
+valid_idxs = [i for i, smi in enumerate(smiles_list) if smi and Chem.MolFromSmiles(smi) is not None]
+rows = [[""] for _ in smiles_list]
+try:
+    batch = model.predict([smiles_list[i] for i in valid_idxs])
+    assert len(batch) == len(valid_idxs)
+    for i, result in zip(valid_idxs, batch):
+        rows[i] = list(result.values())
+except Exception:
+    rows = predict_one_by_one(smiles_list)
+values += rows
 
 with open(output_file, 'w', newline='') as f:
     writer = csv.writer(f)
