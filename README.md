@@ -2,7 +2,8 @@
 
 Predicts growth inhibition of Escherichia coli directly from chemical structure. Stokes and colleagues screened an FDA-approved drug library of 1,760 molecules plus 800 natural products, 2,335 compounds once deduplicated, at 50 micromolar and binarised the results at an 80% growth-inhibition cut-off to train a directed message-passing network augmented with RDKit descriptors. Ranking the Drug Repurposing Hub with it surfaced halicin, a preclinical antidiabetic that cleared infections in mice; a separate ZINC15 screen of over 107 million molecules gave eight further actives.
 
-This model was incorporated on 2020-11-04.Last packaged on 2026-10-08.
+This model was incorporated on 2020-11-04.
+Last packaged on 2026-10-08.
 
 ## Information
 ### Identifiers
@@ -37,6 +38,7 @@ Below are the **Output Columns** of the model:
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos4e40](https://hub.docker.com/r/ersiliaos/eos4e40)
 - **Docker Architecture:** `AMD64`, `ARM64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4e40.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4e40.zip)
+- **Apptainer**: [https://models-sif.s3.eu-north-1.amazonaws.com/eos4e40_v1.sif](https://models-sif.s3.eu-north-1.amazonaws.com/eos4e40_v1.sif)
 
 ### Resource Consumption
 - **Model Size (Mb):** `428`
